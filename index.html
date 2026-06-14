@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pitch Conditions — World Cup 2026 Weather</title>
+    <!-- Set the theme BEFORE the page renders to avoid a flash of the wrong
+         colors. This mirrors the logic in ThemeToggle.jsx; it runs inline so
+         it executes before React mounts. -->
+    <script>
+      (function () {
+        var mode = localStorage.getItem('pitch-conditions-theme') || 'system'
+        var isDark =
+          mode === 'dark' ||
+          (mode === 'system' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.dataset.theme = isDark ? 'dark' : 'light'
+      })()
+    </script>
   </head>
   <body>
     <!-- React mounts the entire app into this single div -->

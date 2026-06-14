@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { CITIES } from './cities'
 import WeatherCard from './WeatherCard'
 import Logo from './Logo'
+import ThemeToggle from './ThemeToggle'
 
 // Build the Open-Meteo request URL for one city.
 // We ask only for the `current` fields the app actually displays, in °F.
@@ -86,11 +87,17 @@ export default function App() {
           <Logo className="logo" />
         </h1>
         <p className="subtitle">Live weather for the World Cup 2026 host cities</p>
+
+        {/* Light / System / Dark theme switcher */}
+        <ThemeToggle />
+
         {/* Manual refresh. Disabled while a fetch is in flight so the user
             can't stack overlapping requests. onClick just re-runs loadAll. */}
-        <button className="refresh" onClick={loadAll} disabled={loading}>
-          {loading ? 'Refreshing…' : 'Refresh'}
-        </button>
+        <div>
+          <button className="refresh" onClick={loadAll} disabled={loading}>
+            {loading ? 'Refreshing…' : 'Refresh'}
+          </button>
+        </div>
       </header>
 
       {/* Loading state: shown while the first fetch is running */}

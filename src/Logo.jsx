@@ -17,7 +17,7 @@ export default function Logo({ className }) {
       <text
         x="0"
         y="62"
-        fill="#ffffff"
+        fill="currentColor"
         fontFamily="sans-serif"
         fontSize="52"
         fontWeight="700"

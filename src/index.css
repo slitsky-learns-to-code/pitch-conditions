@@ -1,10 +1,26 @@
-:root {
+/* Theme colors live in CSS variables. A `data-theme` attribute on <html>
+   (set by ThemeToggle / the inline script in index.html) switches which set
+   is active. "system" is resolved to light or dark in JS, so the CSS only
+   ever needs two concrete themes. The :root fallback = dark. */
+:root,
+:root[data-theme='dark'] {
   --bg: #0f172a;
-  --card-bg: #1e293b;
   --text: #f1f5f9;
   --muted: #94a3b8;
   --accent: #38bdf8;
   --error: #f87171;
+  --card-border: rgba(255, 255, 255, 0.12);
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme='light'] {
+  --bg: #eaeff5;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0284c7;
+  --error: #dc2626;
+  --card-border: rgba(0, 0, 0, 0.12);
+  --toggle-bg: rgba(0, 0, 0, 0.07);
 }
 
 * {
@@ -47,6 +63,34 @@ body {
 .subtitle {
   color: var(--muted);
   margin-top: 0.25rem;
+}
+
+/* Segmented control for Light / System / Dark */
+.theme-toggle {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  padding: 0.25rem;
+  background: var(--toggle-bg);
+  border-radius: 999px;
+}
+
+.theme-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* The currently selected theme gets the filled accent pill */
+.theme-btn.is-active {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 .status {
@@ -103,7 +147,7 @@ body {
     #16894a 28px,
     #16894a 56px
   );
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 1.5rem;
   transition: transform 0.15s ease, border-color 0.15s ease;
