@@ -31,9 +31,17 @@ body {
   margin-bottom: 2rem;
 }
 
-.header h1 {
-  font-size: 1.9rem;
-  font-weight: 700;
+.brand {
+  /* h1 is just a semantic wrapper now; the logo provides the visuals */
+  margin: 0;
+  line-height: 0;
+}
+
+.logo {
+  /* Responsive: scale down on narrow screens, but never blow up huge.
+     height auto preserves the SVG's aspect ratio from its viewBox. */
+  width: min(420px, 85vw);
+  height: auto;
 }
 
 .subtitle {
@@ -86,8 +94,16 @@ body {
 }
 
 .card {
-  background: var(--card-bg);
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  /* Mowed-pitch look: alternating green vertical "mowing stripes" made with
+     a repeating gradient. Two close greens keep it subtle, not busy. */
+  background: repeating-linear-gradient(
+    to right,
+    #15803d,
+    #15803d 28px,
+    #16894a 28px,
+    #16894a 56px
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
   padding: 1.5rem;
   transition: transform 0.15s ease, border-color 0.15s ease;
@@ -95,7 +111,8 @@ body {
 
 .card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  /* White edge on hover, like a painted field line */
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .card-city {
@@ -107,17 +124,19 @@ body {
 .card-temp {
   font-size: 2.6rem;
   font-weight: 700;
-  color: var(--accent);
+  color: #ffffff;
   line-height: 1.1;
 }
 
 .card-desc {
   font-size: 1.05rem;
   margin-top: 0.25rem;
+  color: #ffffff;
 }
 
 .card-wind {
-  color: var(--muted);
+  /* Slightly translucent white reads as "muted" against the green */
+  color: rgba(255, 255, 255, 0.75);
   margin-top: 0.5rem;
   font-size: 0.95rem;
 }

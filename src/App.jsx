@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { CITIES } from './cities'
 import WeatherCard from './WeatherCard'
+import Logo from './Logo'
 
 // Build the Open-Meteo request URL for one city.
 // We ask only for the `current` fields the app actually displays, in °F.
@@ -79,8 +80,12 @@ export default function App() {
   return (
     <main className="app">
       <header className="header">
-        <h1>World Cup 2026 — Host City Weather</h1>
-        <p className="subtitle">Live conditions across all host cities</p>
+        {/* h1 wraps the logo so the page still has a top-level heading for
+            accessibility/SEO; the logo's aria-label provides its text. */}
+        <h1 className="brand">
+          <Logo className="logo" />
+        </h1>
+        <p className="subtitle">Live weather for the World Cup 2026 host cities</p>
         {/* Manual refresh. Disabled while a fetch is in flight so the user
             can't stack overlapping requests. onClick just re-runs loadAll. */}
         <button className="refresh" onClick={loadAll} disabled={loading}>
