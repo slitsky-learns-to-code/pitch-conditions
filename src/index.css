@@ -93,6 +93,47 @@ body {
   color: #ffffff;
 }
 
+/* Top navigation tabs */
+.nav {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link.is-active {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Per-page intro block (heading + subtitle + optional refresh) */
+.page-intro {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.page-intro h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 .status {
   text-align: center;
   color: var(--muted);
@@ -188,4 +229,72 @@ body {
 .card-error {
   color: var(--error);
   margin-top: 0.5rem;
+}
+
+/* ---- USA match cards (share the green .card pitch background) ---- */
+.match-card .card-city {
+  margin-bottom: 0.25rem;
+}
+
+.match-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.match-date {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Result badge: green for a win, red for a loss/draw */
+.match-result {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+.match-result.is-win {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.match-result.is-loss {
+  background: rgba(220, 38, 38, 0.85);
+}
+
+.match-venue {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+/* Kickoff weather block */
+.match-weather {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+}
+
+.match-temp {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.match-desc {
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+}
+
+.match-when {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
 }
