@@ -41,7 +41,7 @@ export const USA_MATCHES = [
   {
     id: 'usa-turkiye',
     date: '2026-06-25',
-    opponent: 'Türkiye',
+    opponent: 'Turkey',
     round: 'Group D',
     outcome: 'L',
     score: '2–3',
