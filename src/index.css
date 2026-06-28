@@ -49,11 +49,11 @@ body {
 
 .brand {
   /* h1 is just a semantic wrapper now; the logo provides the visuals.
-     inline-block so the dark-mode plate (below) hugs the logo instead of
-     spanning the whole header width. */
-  margin: 0;
+     width: fit-content + margin auto centers it on its OWN line while the
+     dark-mode plate (below) still hugs the logo instead of spanning full width. */
+  margin: 0 auto;
   line-height: 0;
-  display: inline-block;
+  width: fit-content;
 }
 
 .logo {
@@ -80,10 +80,12 @@ body {
 
 /* Segmented control for Light / System / Dark */
 .theme-toggle {
-  display: inline-flex;
-  gap: 0.25rem;
-  margin-top: 1rem;
-  padding: 0.25rem;
+  /* flex + fit-content + margin auto = its own centered line below the logo */
+  display: flex;
+  width: fit-content;
+  gap: 0.15rem;
+  margin: 0.85rem auto 0;
+  padding: 0.15rem;
   background: var(--toggle-bg);
   border-radius: 999px;
 }
@@ -92,9 +94,9 @@ body {
   border: none;
   background: transparent;
   color: var(--muted);
-  padding: 0.35rem 0.9rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
