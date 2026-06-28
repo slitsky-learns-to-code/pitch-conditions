@@ -48,16 +48,29 @@ body {
 }
 
 .brand {
-  /* h1 is just a semantic wrapper now; the logo provides the visuals */
+  /* h1 is just a semantic wrapper now; the logo provides the visuals.
+     inline-block so the dark-mode plate (below) hugs the logo instead of
+     spanning the whole header width. */
   margin: 0;
   line-height: 0;
+  display: inline-block;
 }
 
 .logo {
   /* Responsive: scale down on narrow screens, but never blow up huge.
-     height auto preserves the SVG's aspect ratio from its viewBox. */
-  width: min(420px, 85vw);
+     height auto preserves the image's aspect ratio. */
+  width: min(440px, 88vw);
   height: auto;
+  display: block;
+}
+
+/* The logo's "PITCH" wordmark is dark navy — fine on the light theme, but it
+   would disappear on the dark background. In dark mode only, sit it on a clean
+   light rounded plate so it stays legible. */
+:root[data-theme='dark'] .brand {
+  background: #ffffff;
+  padding: 0.6rem 1.1rem;
+  border-radius: 16px;
 }
 
 .subtitle {
