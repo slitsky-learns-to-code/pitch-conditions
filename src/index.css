@@ -298,3 +298,72 @@ body {
   font-size: 0.8rem;
   margin-top: 0.25rem;
 }
+
+/* ---- Auth: login + profile forms ---- */
+.auth {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+}
+
+.auth-form input,
+.auth-form select {
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--toggle-bg);
+  color: var(--text);
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.auth-form .refresh {
+  margin-top: 0.5rem;
+}
+
+.signout {
+  display: block;
+  margin: 1.25rem auto 0;
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signout:hover {
+  color: var(--text);
+}
+
+.status-error {
+  color: var(--error);
+  font-size: 0.9rem;
+}
+
+.status-saved {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.9rem;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
+import { AuthProvider } from './AuthContext'
 import './index.css'
 
 // Entry point: find the #root div from index.html and render <App> into it.
@@ -12,7 +13,10 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      {/* AuthProvider makes the session available everywhere via useAuth() */}
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
